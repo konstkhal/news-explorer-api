@@ -1,3 +1,6 @@
+# Related to development
+/service_area/
+
 # Logs
 logs
 *.log
@@ -28,4 +31,3 @@ node_modules
 
 #gitignore itself
 #.gitignore
-
