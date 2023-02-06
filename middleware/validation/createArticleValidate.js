@@ -2,7 +2,7 @@ const { celebrate, Joi } = require('celebrate');
 
 const { validateURL } = require('../../helpers/validateURL');
 
-exports.createCardValidate = celebrate({
+const createArticleValidate = celebrate({
   body: Joi.object().keys({
     keyword: Joi.string().required(),
     title: Joi.string().min(2).max(1024).required(),
@@ -13,3 +13,5 @@ exports.createCardValidate = celebrate({
     source: Joi.string().required(),
   }),
 });
+
+module.exports = createArticleValidate;

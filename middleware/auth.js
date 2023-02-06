@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 // require('dotenv').config({ path: '../../.env' });
-const APP_STATE = require('../helpers/constants');
+const { APP_STATE } = require('../helpers/constants');
 
 // console.log(process.env.NODE_ENV); // production
 
