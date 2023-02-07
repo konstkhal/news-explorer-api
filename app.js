@@ -25,7 +25,11 @@ const { APP_STATE, errorHandler } = require('./helpers/constants');
 
 const NotFoundError = require('./errors/NotFoundError');
 
-const { PORT = 3000, NODE_ENV = 'test' } = process.env;
+const {
+  PORT = 3000,
+  NODE_ENV = 'test',
+  MONGO_LINK = 'mongodb://localhost:27017/finalproj1',
+} = process.env;
 
 const app = express();
 app.use(cors());
@@ -44,7 +48,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // To parse the incoming requests with JSON payloads
 
 // connect to the MongoDB server
-mongoose.connect('mongodb://localhost:27017/finalproj1', {});
+mongoose.connect(MONGO_LINK, {});
 // Now mongodb have no need in launch options / parameters ↑
 
 app.disable('x-powered-by');
