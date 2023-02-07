@@ -12,6 +12,6 @@ const {
 
 // console.log('users routers init');
 
-router.get('/:id', auth, getProfileValidate, getProfile);
+router.get('/me', auth, getProfileValidate, getProfile);
 
 module.exports = router;

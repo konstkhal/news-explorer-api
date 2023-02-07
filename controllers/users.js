@@ -29,7 +29,8 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 
 // returns information about the logged-in user (email and name)
 const getProfile = (req, res, next) => {
-  User.findById(req.params.id)
+  const { _id: userId } = req.user;
+  User.findById(userId)
     .orFail(() => {
       throw new NotFoundError(
         APP_STATE.HTTP_USER_NOT_FOUND.MESSAGE,

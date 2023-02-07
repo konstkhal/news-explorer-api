@@ -1,9 +1,11 @@
 const { celebrate, Joi } = require('celebrate');
 
 const getProfileValidate = celebrate({
-  params: Joi.object().keys({
-    id: Joi.string().length(24).required(),
-  }),
+  headers: Joi.object()
+    .keys({
+      authorization: Joi.string().trim().required(),
+    })
+    .unknown(true),
 });
 
 module.exports = {
