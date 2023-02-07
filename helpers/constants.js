@@ -87,12 +87,12 @@ const APP_STATE = {
   },
 };
 
-const errorHandler = (error, req, res, next) => {
-  const status = error.status || 500;
-  const message =
-    status === 500 ? APP_STATE.DEFAULT_SERVER_ERROR.MESSAGE : error.message;
+const errorHandler = (err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
 
-  res.status(status).send({ message });
+  const message = err.message || APP_STATE.DEFAULT_SERVER_ERROR.MESSAGE;
+
+  res.status(statusCode).send({ message });
   next();
 };
 
